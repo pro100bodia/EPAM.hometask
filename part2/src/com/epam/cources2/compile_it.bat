@@ -1,0 +1,1 @@
+javac -d ../../../../classes Hello2.java
