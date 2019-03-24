@@ -1,23 +1,14 @@
 //count bits for byte short int long
-//Doesn`t work
 
-/*public class Test{
-	public static void main(String[] args){
-		byte val = 1;
-		val = (byte)-val;
-		val <<= 1;
-		System.out.println(val);
-	}
-}                    */
+import java.math.BigInteger;
 
 public class Task3{
-	private static<T extends Number> byte bitsCount(T dataType){
-		byte size = 0;
-		T step = new T("1");
+	private static int bitsCount(long dataType){
+		int size = 0;
 
 		while(dataType != 0)
 		{
-			dataType <<= step;
+			dataType >>= 1;
 			size++;
 		}
 
@@ -31,8 +22,23 @@ public class Task3{
 		switch(type)
 		{
 			case "byte":
-				System.out.println(bitsCount(new Byte(("-1"))));
-				
+				System.out.println(bitsCount(255l));
+				break;
+
+			case "short":
+				System.out.println(bitsCount(65535l));
+				break;
+
+			case "int":
+				System.out.println(bitsCount(4294967295l));
+				break;
+
+			case "long":
+				System.out.print(bitsCount((long)Math.pow(2, 64)) + 1);
+				break;
+
+			default:
+				System.out.println("unknown data type");
 		}
 	}
 }                   
